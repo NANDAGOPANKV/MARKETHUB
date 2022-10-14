@@ -3,6 +3,7 @@ import { MdAddShoppingCart, MdFileDownloadDone } from "react-icons/md";
 import { AuthContextProvider } from "../../context/auth/AuthContext";
 import { db } from "../../firebase/Firebase";
 import { doc, arrayUnion, updateDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 export const Cards = ({ items }) => {
   const [addToCart, setAddToCart] = useState(false);
@@ -26,13 +27,10 @@ export const Cards = ({ items }) => {
     }
   };
 
- 
-
   if (items?.category) {
     return (
-      <div className=" relative max-w-[550px] h-[450px] m-3 border rounded-md shadow-xl bg-slate-50 hover:scale-105 duration-500   ">
+      <div className=" relative max-w-[550px] h-[440px]  m-3 rounded-md shadow-xl hover:bg-slate-800 hover:text-white  bg-slate-50 hover:scale-105 duration-700   ">
         <div className="w-full">
-          <p>{user ? user?.email : 'No User'} i </p>
           <div>
             <div className="w-full flex items-center justify-between px-2 pt-1  ">
               <div></div>
@@ -46,7 +44,7 @@ export const Cards = ({ items }) => {
             </div>
             <div>
               <img
-                className=" my-2 mx-auto max-h-[200px]  "
+                className=" my-2 px-1 mx-auto max-h-[200px]  "
                 src={items?.category?.image}
                 alt="/"
               />
@@ -54,8 +52,8 @@ export const Cards = ({ items }) => {
           </div>
         </div>
 
-        <div className="border w-[-1rem] flex  ">
-          <div className="w-full h-[225px] ">
+        <div className=" w-[-1rem] flex  ">
+          <div className="w-full  ">
             <div className="py-3 px-3 text-lg">
               <p>{items?.title}</p>
             </div>
@@ -63,12 +61,14 @@ export const Cards = ({ items }) => {
               <p> MRP: {items?.price}</p>
               <p>Category: {items?.category?.name}</p>
             </div>
-            <div className="flex items-center h-[50px] justify-between px-1  ">
-              <div className=" rounded  bg-orange-500 text-white font-bold mt-3">
-                <button className="px-8  py-3  ">BUY</button>
+            <div className="flex items-center h-[50px] justify-between px-6  ">
+              <div className=" rounded md:mr-2  bg-orange-500 text-white hover:bg-orange-400 duration-100 font-bold mt-3">
+                <button className="px-6   py-3  ">BUY</button>
               </div>
-              <div className="rounded bg-red-500 text-white font-bold mt-3">
-                <button className="px-7 py-3  ">SHARE</button>
+              <div className="rounded md:ml-2 bg-red-500 hover:bg-red-400 duration-200 text-white font-bold mt-3">
+                <Link to="/cart">
+                  <button className="px-5 py-3  ">MyCart</button>
+                </Link>
               </div>
             </div>
           </div>

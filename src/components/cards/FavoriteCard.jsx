@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { MdAddShoppingCart, MdFileDownloadDone } from "react-icons/md";
 
-
-export const FavoriteCard = ({ items,func }) => {
+export const FavoriteCard = ({ items, func }) => {
   const [added, setAdded] = useState(false);
 
-
   return (
-    <div className=" relative max-w-[550px] h-[450px] m-3 border rounded-md shadow-xl bg-slate-50 hover:scale-105 duration-500   ">
-      <p>yse Favorite Car</p>
+    <div className=" relative max-w-[550px] h-[450px] m-3 mt-12 border rounded-md shadow-xl bg-slate-50 hover:scale-105 duration-500   ">
       <div className="w-full">
         <div>
           <div className="w-full flex items-center justify-between px-2 pt-1  ">
@@ -31,7 +28,7 @@ export const FavoriteCard = ({ items,func }) => {
         </div>
       </div>
 
-      <div className="border w-[-1rem] flex  ">
+      <div className=" w-[-1rem] flex  ">
         <div className="w-full h-[225px] ">
           <div className="py-3 px-3 text-lg">
             <p>{items?.name}</p>
@@ -40,15 +37,12 @@ export const FavoriteCard = ({ items,func }) => {
             <p> MRP: {items?.price}</p>
             <p>Category: {items?.category}</p>
           </div>
-          <div className="flex items-center h-[50px] justify-between px-1  ">
-            <div className=" rounded  bg-orange-500 text-white font-bold mt-3">
+          <div className="flex items-center h-[50px] justify-between px-8  ">
+            <div className=" rounded mb-5  bg-orange-500 text-white font-bold mt-3">
               <button className="px-8  py-3  ">BUY</button>
             </div>
-            <div className="rounded bg-red-500 text-white font-bold mt-3">
-              <button
-                className="px-7 py-3  "
-                onClick={() => func(items.id)}
-              >
+            <div className="rounded mb-5 bg-red-500 text-white font-bold mt-3">
+              <button className="px-7 py-3  " onClick={() => func(items.id)}>
                 delete
               </button>
             </div>

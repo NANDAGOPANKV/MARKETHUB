@@ -1,4 +1,4 @@
-import React, { createContext, useLayoutEffect, useState } from "react";
+import React, { createContext, useContext, useLayoutEffect, useState } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -11,13 +11,20 @@ import { doc, setDoc } from "firebase/firestore";
 export const AuthContextProvider = createContext();
 export const AuthContext = ({ children }) => {
   const [user, setUser] = useState({});
+
   // sign up user
-  const SignUp = (email, password) => {
+  const SignUp = (email, password, userNameData) => {
     createUserWithEmailAndPassword(auth, email, password);
     return setDoc(doc(db, "users", email), {
       FavoriteContent: [],
+      UserData: {
+        name: userNameData,
+        email,
+        password,
+      },
     });
   };
+
   // sign in user
   const Signin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password);
@@ -43,3 +50,8 @@ export const AuthContext = ({ children }) => {
     </AuthContextProvider.Provider>
   );
 };
+
+
+export const UserAuth = () => {
+  return useContext(AuthContextProvider);
+}

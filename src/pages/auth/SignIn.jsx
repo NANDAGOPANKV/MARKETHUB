@@ -21,14 +21,14 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="m-3 border shadow  h-[450px] text-center  ">
-      <p className="font-bold text-2xl  uppercase "> Sign In</p>
+    <div className="m-3 h-[450px] text-center mt-14  ">
       <div className="p-5 flex items-center justify-between ">
         <div></div>
-        <div className="w-[500px] h-[350px] ">
+        <div className="w-[500px] h-[350px]  mt-10  ">
           <form onSubmit={handleSignin}>
             <div className=" border h-[395px]  bg-slate-800 text-white text-center py-8 rounded-xl ">
               <div className="p-2">
+                <p className="font-bold  uppercase  mb-2"> Sign In</p>
                 <label className="uppercase font-bold text-lg   ">Email</label>
                 <br />
                 <input
@@ -57,7 +57,7 @@ export const SignIn = () => {
               </div>
               <div className="py-4">
                 <div className="flex text-center justify-center">
-                  Already have an Account?{" "}
+                  Dont Have an Account?{" "}
                   <Link to="/signup">
                     <p className=" ml-1 text-blue-500">Sign Up</p>
                   </Link>

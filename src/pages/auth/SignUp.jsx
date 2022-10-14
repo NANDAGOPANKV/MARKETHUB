@@ -14,7 +14,8 @@ export const SignUp = () => {
     e.preventDefault();
     try {
       console.log("Sign Up");
-      await SignUp(email, password);
+      await SignUp(email, password ,name)
+
       NavigateTo("/signin");
     } catch (error) {
       console.log(error);
@@ -22,14 +23,15 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="m-3 border shadow  h-[450px] text-center ">
+    <div className="m-3  h-[450px] text-center mt-2 mb-14 ">
       <p className="font-bold text-2xl pb-[1px] uppercase "> Sign Up</p>
       <div className="p-5 flex items-center justify-between ">
         <div></div>
-        <div className="w-[500px] h-[350px]">
+        <div className="w-[500px] h-[350px]  mt-10">
           <form onSubmit={handleSignUp}>
-            <div className=" border h-[395px]  bg-slate-800 text-white text-center p-2 rounded-xl ">
+            <div className="  h-[395px]  bg-slate-800 text-white text-center p-2 rounded-xl ">
               <div className="p-3">
+              <p className="font-bold  uppercase"> Sign Up</p>
                 <label className="uppercase font-bold text-lg">Name</label>
                 <br />
                 <input
@@ -64,7 +66,7 @@ export const SignUp = () => {
               </div>
               <div className=" h-[50px]  ">
                 <button className="bg-white text-slate-800 w-[30%] font-bold rounded-3xl py-3 hover:bg-slate-800 hover:text-white duration-300 ">
-                  Signin
+                  SignUp
                 </button>
               </div>
               <div>
